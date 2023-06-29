@@ -1,3 +1,4 @@
+@test
 Feature:Learning Cucumber
 
   # 1 - Pattern matching for any word or sentence using {} -->here "has launched" and "launches"
@@ -16,7 +17,7 @@ Feature:Learning Cucumber
     Then User verifies new app
 
 
-  @test
+
   # 3 - Use of Data Tables
   Scenario: Use of 1-d DataTables 1st Way
     When User verifies following webelements

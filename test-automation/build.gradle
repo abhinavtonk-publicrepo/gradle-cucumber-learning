@@ -47,6 +47,7 @@ task cucumber() {
                     '--plugin', 'html:target/cucumber-report.html',
                     '--plugin', 'json:target/cucumber-report.json',
                     '--glue', 'step_defs',
+                    '--threads', 4,
                     '--monochrome',
                     '--tags', "@test",
                     'src/test/resources/features']

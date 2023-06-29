@@ -1,10 +1,149 @@
 [
   {
-    "line": 1,
+    "line": 2,
     "elements": [
       {
-        "start_timestamp": "2023-06-29T12:28:38.660Z",
-        "line": 21,
+        "start_timestamp": "2023-06-29T12:32:56.177Z",
+        "line": 5,
+        "name": "Check the different types of pattern matching",
+        "description": "",
+        "id": "learning-cucumber;check-the-different-types-of-pattern-matching",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 6426400,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User has launched the application",
+            "match": {
+              "arguments": [
+                {
+                  "val": "has launched",
+                  "offset": 5
+                }
+              ],
+              "location": "step_defs.LearningCucumberStepDef.applicationLaunch(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1384800,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "User launches the application",
+            "match": {
+              "arguments": [
+                {
+                  "val": "launches",
+                  "offset": 5
+                }
+              ],
+              "location": "step_defs.LearningCucumberStepDef.applicationLaunch(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User \"clicks\" the button",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"clicks\"",
+                  "offset": 5
+                }
+              ],
+              "location": "step_defs.LearningCucumberStepDef.clicksButton(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2055900,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User \"checks\" the checkbox",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"checks\"",
+                  "offset": 5
+                }
+              ],
+              "location": "step_defs.LearningCucumberStepDef.checksCheckbox(java.lang.String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-06-29T12:32:56.172Z",
+        "line": 14,
+        "name": "Multiple annotations over single method",
+        "description": "",
+        "id": "learning-cucumber;multiple-annotations-over-single-method",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2157500,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "User has launched new app",
+            "match": {
+              "location": "step_defs.LearningCucumberStepDef.multipleAnnotationOverSingleMethod()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1384800,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "User navigates to new app",
+            "match": {
+              "location": "step_defs.LearningCucumberStepDef.multipleAnnotationOverSingleMethod()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1006100,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "User verifies new app",
+            "match": {
+              "location": "step_defs.LearningCucumberStepDef.multipleAnnotationOverSingleMethod()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-06-29T12:32:56.172Z",
+        "line": 22,
         "name": "Use of 1-d DataTables 1st Way",
         "description": "",
         "id": "learning-cucumber;use-of-1-d-datatables-1st-way",
@@ -13,10 +152,10 @@
         "steps": [
           {
             "result": {
-              "duration": 2991500,
+              "duration": 5318600,
               "status": "passed"
             },
-            "line": 22,
+            "line": 23,
             "name": "User verifies following webelements",
             "match": {
               "location": "step_defs.LearningCucumberStepDef.useOf1dDataTable(java.util.List\u003cjava.lang.String\u003e)"
@@ -46,6 +185,128 @@
             "name": "@test"
           }
         ]
+      },
+      {
+        "start_timestamp": "2023-06-29T12:32:56.173Z",
+        "line": 35,
+        "name": "Use of 2-d DataTables",
+        "description": "",
+        "id": "learning-cucumber;use-of-2-d-datatables",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 6426400,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "User enters following details",
+            "match": {
+              "location": "step_defs.LearningCucumberStepDef.useOf2dDataTable(java.util.List\u003cjava.util.List\u003cjava.lang.String\u003e\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Richu",
+                  "1"
+                ]
+              },
+              {
+                "cells": [
+                  "Abhinav",
+                  "2"
+                ]
+              },
+              {
+                "cells": [
+                  "Prachi",
+                  "3"
+                ]
+              }
+            ],
+            "keyword": "When "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-06-29T12:32:56.196Z",
+        "line": 46,
+        "name": "Use of Scenario Outline",
+        "description": "",
+        "id": "learning-cucumber;use-of-scenario-outline;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "\"Abhinav\" verifies his 1",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Abhinav\"",
+                  "offset": 0
+                },
+                {
+                  "val": "1",
+                  "offset": 23
+                }
+              ],
+              "location": "step_defs.LearningCucumberStepDef.scenarioOutlineExample(java.lang.String,int)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-06-29T12:32:56.196Z",
+        "line": 47,
+        "name": "Use of Scenario Outline",
+        "description": "",
+        "id": "learning-cucumber;use-of-scenario-outline;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "\"Prachi\" verifies his 2",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Prachi\"",
+                  "offset": 0
+                },
+                {
+                  "val": "2",
+                  "offset": 22
+                }
+              ],
+              "location": "step_defs.LearningCucumberStepDef.scenarioOutlineExample(java.lang.String,int)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
       }
     ],
     "name": "Learning Cucumber",
@@ -53,6 +314,15 @@
     "id": "learning-cucumber",
     "keyword": "Feature",
     "uri": "file:src/test/resources/features/LearningCucumber.feature",
-    "tags": []
+    "tags": [
+      {
+        "name": "@test",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
   }
 ]
