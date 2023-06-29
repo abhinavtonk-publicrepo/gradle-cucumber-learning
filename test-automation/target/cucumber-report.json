@@ -1,0 +1,58 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2023-06-29T12:28:38.660Z",
+        "line": 21,
+        "name": "Use of 1-d DataTables 1st Way",
+        "description": "",
+        "id": "learning-cucumber;use-of-1-d-datatables-1st-way",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2991500,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "User verifies following webelements",
+            "match": {
+              "location": "step_defs.LearningCucumberStepDef.useOf1dDataTable(java.util.List\u003cjava.lang.String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "Apple"
+                ]
+              },
+              {
+                "cells": [
+                  "Banana"
+                ]
+              },
+              {
+                "cells": [
+                  "Carrot"
+                ]
+              }
+            ],
+            "keyword": "When "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      }
+    ],
+    "name": "Learning Cucumber",
+    "description": "",
+    "id": "learning-cucumber",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/LearningCucumber.feature",
+    "tags": []
+  }
+]
