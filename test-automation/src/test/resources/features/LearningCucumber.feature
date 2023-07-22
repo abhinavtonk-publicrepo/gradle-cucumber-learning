@@ -1,5 +1,8 @@
-@test
+
 Feature:Learning Cucumber
+  @regression
+  Scenario: User RND
+    Given User do RND
 
   # 1 - Pattern matching for any word or sentence using {} -->here "has launched" and "launches"
   Scenario: Check the different types of pattern matching
@@ -45,4 +48,5 @@ Feature:Learning Cucumber
       | User    | Id |
       | Abhinav | 1  |
       | Prachi  | 2  |
+
 

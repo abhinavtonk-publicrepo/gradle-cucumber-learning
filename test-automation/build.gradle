@@ -23,8 +23,15 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.1-jre'
 
-    // Cucumber Setting-1 (with 'testImplementation' dependencies the code should be in src/test/java or else it wont detect imports)
-    testImplementation 'io.cucumber:cucumber-java:6.10.4'
+    // Cucumber Setting-1
+    //with 'testImplementation' dependencies the code should be in src/test/java or else it wont detect imports
+    //with 'implementation' dependencies the code should be in src/test/java OR src/main/java
+    implementation 'io.cucumber:cucumber-java:7.9.0'
+    implementation 'io.cucumber:cucumber-core:7.9.0'
+    // Extent Reports
+    implementation 'com.aventstack:extentreports:5.0.9'
+    implementation 'tech.grasshopper:extentreports-cucumber7-adapter:1.9.2'
+
 }
 
 
@@ -38,19 +45,48 @@ configurations {
 //Cucumber Setting-3
 task cucumber() {
     dependsOn assemble, testClasses
+
+    System.out.println("Root Project = " + rootProject.projectDir)
+    System.out.println("Project = " + project.projectDir)
+    System.out.println("System Property = "+ System.getProperty("env")); //gradle cucumber -Denv=qa
+    System.out.println("configurations.cucumberRuntime = " + configurations.cucumberRuntime)
+    System.out.println("sourceSets.main.output = " + sourceSets.main.output)
+    System.out.println("sourceSets.test.output = " + sourceSets.test.output)
+
+    String tags;
+    String threads = 4;
+    String htmlReportLocation = "${project.projectDir}/automation-execution-reports/CucumberReports/cucumber-report.html";
+    String jsonReportLocation = "${project.projectDir}/automation-execution-reports/CucumberReports/cucumber-report.json";
+//    String appEnv = System.getProperty("env");
+//    buildEnvironment appEnv;
+//    environment 'env' , System.getProperty("env")
+//    systemProperty "env" , System.getProperty("env")
+
+
+    if (project.hasProperty("tags")) {
+        tags = project.tags;
+    } else {
+        tags = "@regression"
+    }
+
+//    doFirst {
+//        environment 'env' , System.getProperty("env")
+//    }
     doLast {
         javaexec {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = [
-                    '--plugin', 'pretty',
-                    '--plugin', 'html:target/cucumber-report.html',
-                    '--plugin', 'json:target/cucumber-report.json',
-                    '--glue', 'step_defs',
-                    '--threads', 4,
-                    '--monochrome',
-                    '--tags', "@test",
-                    'src/test/resources/features']
+                    "src/test/resources/features",
+                    "--glue", "step_defs",
+                    "--tags", "${tags}",
+                    "--threads", "${threads}",
+                    "--plugin", "pretty",
+                    "--monochrome",
+                    "--plugin", "json:${jsonReportLocation}",
+                    "--plugin", "html:${htmlReportLocation}",
+                    "--plugin", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+                    ]
         }
     }
 }
@@ -64,7 +100,12 @@ task cucumber() {
 //    mainClass = 'gradlecucumberlearning.App'
 //}
 
-tasks.named('test') {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
+//tasks.named('test') {
+//    // Use JUnit Platform for unit tests.
+//    useJUnitPlatform()
+//}
+test{
+//    String appEnv = System.getProperty("env")
+    environment "env", System.getProperty("env")
+//    systemProperties = System.properties
 }

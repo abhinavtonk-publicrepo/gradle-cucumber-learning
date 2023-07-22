@@ -1,6 +1,9 @@
 package step_defs;
 
+import com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter;
+import io.cucumber.java.Before;
 import io.cucumber.java.ParameterType;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -9,10 +12,31 @@ import java.util.HashMap;
 import java.util.List;
 
 public class LearningCucumberStepDef {
+    Scenario scenario;
+    @Before
+    public void beforeScenario(Scenario scenario){
+        this.scenario = scenario;
+    }
+    @Given("User do RND")
+    public void userRND(){
+        System.out.println("Environement var = "+ System.getenv("env")); //Getting environment variable (do 'set env=qa' in cmd before)set
+        System.out.println("System Properties = "+ System.getProperty("env"));
+//        System.out.println("All Environement var = "+ System.getenv());
+
+        // Logging in the Cucumber and Extent Reports
+        StringBuilder sb = new StringBuilder();
+        scenario.log("This is scenario.log logging"); // This will be logged in both cucumber and Extent Report
+        scenario.log(sb.append("<details><summary>Step Log</summary>").append("This is html scenario log").append("</details>").toString());// This will be logged in both cucumber and Extent Report in collapsed way
+        ExtentCucumberAdapter.addTestStepLog("This is Extent Cucumber Adapter log"); // This will be only logged in Extent Report and not in cucumber report
+
+        //Screenshots
+        byte[] b = new byte[0];
+        scenario.attach(b, "image/png", scenario.getName()); //First param is the screenshot method of tool that returns byte[]
+    }
     @Given("User {} the application")
     public void applicationLaunch(String anyMatch) {
         System.out.println("User "+ anyMatch + " the application");
-    }
+        }
 
     @When("User {string} the button")
     public void clicksButton(String stringMatch) {
