@@ -1,14 +1,20 @@
 
 Feature:Learning Cucumber
-  @regression
+
   Scenario: User RND
     Given User do RND
 
+  @regression
   # 1 - Pattern matching for any word or sentence using {} -->here "has launched" and "launches"
   Scenario: Check the different types of pattern matching
-    Given User has launched the application
+    Given User 'has' launched the application
+    And User "has" launched the application
+    And User has launched the application
+    And User "has launched" the application
     And User launches the application
-    When User "clicks" the button
+    And User 1 the application
+    When User "do clicks" the button
+    And User "clicks" the button
     And User "checks" the checkbox
 #    And He clicks the button  -->Not working, Check this
 
@@ -40,6 +46,7 @@ Feature:Learning Cucumber
       | Richu   | 1 |
       | Abhinav | 2 |
       | Prachi  | 3 |
+
 
   #5 - Use of Scenario Outline and Examples-->string should be with double quotes like "<User>" and int can be without quote like <Id>
   Scenario Outline: Use of Scenario Outline

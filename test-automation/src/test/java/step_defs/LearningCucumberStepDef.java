@@ -30,8 +30,8 @@ public class LearningCucumberStepDef {
         ExtentCucumberAdapter.addTestStepLog("This is Extent Cucumber Adapter log"); // This will be only logged in Extent Report and not in cucumber report
 
         //Screenshots
-        byte[] b = new byte[0];
-        scenario.attach(b, "image/png", scenario.getName()); //First param is the screenshot method of tool that returns byte[]
+//        byte[] b = new byte[0];
+//        scenario.attach(b, "image/png", scenario.getName()); //First param is the screenshot method of tool that returns byte[]
     }
     @Given("User {} the application")
     public void applicationLaunch(String anyMatch) {
@@ -61,7 +61,7 @@ public class LearningCucumberStepDef {
     @Given("User has launched new app")
     @When("User navigates to new app")
     @Then("User verifies new app")
-    public void multipleAnnotationOverSingleMethod() {
+    public void multipleAnnotationOverSingleMethod(String s) {
         System.out.println("Multiple Annotation over single method");
     }
 
